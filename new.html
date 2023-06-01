@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .title {
+        position: absolute;
+        left: 5%;
+        top: 2%;
+        font-size: 100px;
+        font-family: Georgia, serif;
+      }
+
+      #myVideo {
+        position: relative;
+        right: 0;
+        bottom: 0;
+        max-width: 100%;
+        max-height: 100%;
+      }
+      body {
+        margin: 0;
+        max-height: fit-content;
+        max-width: fit-content;
+        background-color: #6e7774;
+      }
+      ul {
+        list-style-type: none;
+        margin: 0;
+        position: absolute;
+        right: 2%;
+        top: 5%;
+        padding: 0%;
+        overflow: hidden;
+        font-size: 40px;
+        font-family: Georgia, serif;
+      }
+
+      li {
+        float: left;
+      }
+
+      li a {
+        display: block;
+        color: rgb(0, 0, 0);
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+
+      li a:hover {
+        background-color: #63304f;
+      }
+      #slideshow {
+        position: relative;
+        color: rgb(233, 229, 229);
+        background-color: #41383b;
+        padding: 2%;
+        top: 70px;
+        transform: translate(-50%, -50%);
+        font-size: 100px;
+        left: 50%;
+        text-align: center;
+        font-family: Georgia, serif;
+
+      }
+      .content {
+        position: fixed;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        color: #f1f1f1;
+        width: 100%;
+        padding: 20px;
+      }
+      .frame{
+        position: absolute;
+        bottom: 100%;
+      }
+      
+      .venue{
+        position: absolute;
+        top: 1210px;
+      }
+      
+
+      * {
+        box-sizing: border-box;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Verdana, sans-serif;
+        margin: 0;
+      }
+      .mySlides {
+        display: none;
+      }
+      img {
+        vertical-align: middle;
+      }
+
+     
+
+      wrap {
+  color: #222;
+  font-size: 24px;
+}
+
+.clip-svg {
+  width: 0;
+  height: 0;
+}
+
+.clip-caption {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  text-align: center;
+}
+
+.clip-each {
+  display: block;
+  position: relative;
+  -webkit-clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+  clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+  -webkit-clip-path: url("#hexagon-clip");
+  clip-path: url("#hexagon-clip");
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  margin: 0 auto;
+}
+
+a.clip-each:hover {
+  background: #443a3d;
+  -webkit-transition: all 0.25s ease-in;
+  transition: all 0.25s ease-in;
+}
+
+.clip-solid {
+  width: 400px;
+  height: 400px;
+  background-image: url("preview.gif");
+  background-repeat: no-repeat;
+  background-size: 400px 350px;
+  background-color: #ad6996;
+  background-blend-mode: hard-light;
+  -webkit-transition: all 2.5s linear;
+  transition: all 2.5s linear;
+}
+
+.clip-solid:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-clip-path: polygon(100% 3%, 17% 100%, 100% 100%);
+  clip-path: polygon(100% 3%, 17% 100%, 100% 100%);
+  -webkit-clip-path: url("#triangle-clip");
+  clip-path: url("#triangle-clip");
+  background: #41383b;
+  z-index: 1;
+  width: 100%;
+  height: 155px;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+  pointer-events: none;
+}
+
+.clip-solid:hover:after {
+  height: 0;
+  -webkit-transition: all 0.45s ease-in;
+  transition: all 0.45s ease-in;
+}
+
+.clip-solid:hover .social-share-block {
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+.social-share-block {
+  position: absolute;
+  bottom: 20px;
+  right: 75px;
+  color: #fff;
+  font-size: 70%;
+  z-index: 2;
+}
+
+.social-each {
+  font-size: 40%;
+  width: 100px;
+}
+
+.clip-gradient {
+  background: #222;
+  width: 200px;
+  height: 200px;
+}
+
+.clip-gradient .clip-caption {
+  color: #fff;
+}
+
+.clip-border {
+  background: -webkit-linear-gradient(300deg, #aebcbf 0%, #6e7774 50%, #333 61%, #333 100%);  
+  background: linear-gradient(150deg, #aebcbf 0%,#6e7774 50%,#333 61%,#333 100%);
+  width: 200px;
+  height: 200px;
+  margin-top: 7px;
+  color: #222;
+}
+
+.clip-border::after {
+  content: "";
+  position: absolute;
+  top: 4%;
+  left: 4%;
+  right: 4%;
+  bottom: 4%;
+  margin: 0 auto;
+  background: url("http://karenmenezes.com/shapes-polygon/bg-cubes.png");
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+  -webkit-clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+  clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+  -webkit-clip-path: url("#hexagon-clip");
+  clip-path: url("#hexagon-clip");
+  z-index: -1;
+}
+
+.clip-tagline {
+    position: absolute;
+    top: 90px;
+  color: #758C9B;
+  display: block;
+  text-decoration: none;
+  text-align: 0;
+}
+
+@media only screen and (min-width: 550px) {
+  .wrap {
+    display: table;
+    position: absolute;
+    top: 60%;
+    left: 63%;
+    -ms-transform: translateY(-50%) translateX(-50%);
+    -webkit-transform: translateY(-50%) translateX(-50%);
+    transform: translateY(-50%) translateX(-50%);
+  }
+
+  .clip-block {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  .clip-border {
+    margin-top: 20px;
+  }
+}
+
+      .container1 {
+  position: absolute;
+  text-align: center;
+  top: 250%;
+  color: white;
+}
+.header1{
+    position: relative;
+    color: rgb(233, 229, 229);
+    background-color: #41383b;
+    padding: 2%;
+    bottom: 1200px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 100px;
+    font-family: Georgia, serif;
+}
+/* Bottom left text */
+.iframe {
+  position: relative;
+  margin: 10%;
+  max-width: 500px;
+  bottom: 1300px;
+  left: 7%;
+  align-self: center;
+  size: 1000px;
+  
+}
+
+#background {
+    position: relative;
+    color: rgb(233, 229, 229);
+    background-color: #41383b;
+    padding: 0%;
+    top: 2400px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 100px;
+    font-family: Georgia, serif;
+      }
+.bg1{
+    position: absolute;
+  left:0;
+  top: 3700px;
+  color: white;
+}
+.texts{
+    position: relative;
+    color: rgb(233, 229, 229);
+    background: rgba(0, 0, 0, 0.5);
+    padding: 2%;
+    top: 2800px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 40px;
+    font-family: Georgia, serif;
+}
+      
+
+footer{
+  background-color: rgb(88, 87, 86);
+  color: white;
+  bottom: 100px;
+  position: absolute;
+  bottom: 100%;
+}
+    </style>
+  </head>
+  <body>
+    <video autoplay muted loop id="myVideo">
+      <source src="video.mp4" type="video/mp4" />
+      Your browser does not support HTML5 video.
+    </video>
+    
+        <div class="title">MY SITE</div>
+    <nav>
+      <ul>
+        <li><a href="#slideshow">Venue</a></li>
+        <li><a href="#location">Location</a></li>
+        <li><a href="#background">Introduction</a></li>
+        <li><a href="newsite.html">About</a></li>
+      </ul>
+    </nav>
+    <p>
+    <div id="slideshow">Venue</div>
+    </p>
+    <div class="venue">
+        <img src="b1.jpg" alt="">
+    </div>
+
+    <div class="container1">        
+        <img src="sky.jpg" alt="" sizes="1000px">
+        <div class="header1"><div id = "location">Location</div></div>
+        <div class="iframe"> <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15454.032286949114!2d120.96102229265134!3d14.455490084326794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397cd9273416e43%3A0x96542d86e50a4106!2sSt.%20Dominic%20College%20of%20Asia!5e0!3m2!1sen!2sph!4v1677652818989!5m2!1sen!2sph" width="1200" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+    
+        <div class = "introduction">
+            <div class="bg1"><img src="h1.jpg" alt=""></div>
+            <div id="background">Introduction</div>
+            <div class="texts">Summer camp is a closely supervised programme which is usually offered to young teenagers and children aimed at improving the indulgence of students in extra-curricular activities. A summer camp includes a wide range of activities such as camping, hiking, music, dance, literature, language learning, programming and a lot more.
+
+                Summer camp is a great initiative taken up mostly by schools to help students make optimum use of their holidays by learning and mastering an entirely new skill. This way by trying various activities, young kids can explore their potential and passion for certain arts and simultaneously widen their horizons.</div>
+            </div>
+    </div>
+    <footer>
+        <p>Royette Rae S. Entero</p>
+    </footer>
+    
+    </div>
+        <div class="content">Royette Rae S. Entero</div>
+        <div class="wrap">
+            <div class="clip-block">
+                <div class="clip-each clip-solid">
+                <div class="social-share-block">
+                    <span class="social-each"><strong>100K</strong>
+                    </span> <span>&hearts;</span>
+                </div>
+                </div>	
+            </div> <!-- /clip-block -->
+
+            <div class="clip-block">
+                <a href="2.png" class="clip-each clip-gradient">
+                    <div class="clip-caption">Adventure</div>
+                </a>	
+                <a href="1.png" class="clip-each clip-border">
+                    <div class="clip-caption">Hotels</div>
+                </a>	
+            
+            </div> <!-- /clip-block -->
+
+            <div class="clip-block">
+                <div class="clip-tagline">
+                <a href="http://127.0.0.1:5500/Untitled-1.html" class="clip-each clip-gradient">
+                    <div class="clip-caption">Booking</div>
+                </a>   
+                
+            </div> <!-- /clip-block -->
+
+            <svg class="clip-svg">
+                <defs>
+                    <clipPath id="hexagon-clip" clipPathUnits="objectBoundingBox">
+                        <polygon points="0.25 0.05, 0.75 0.05, 1 0.5, 0.75 0.95, 0.25 0.95, 0 0.5" />
+                    </clipPath>
+                </defs>
+            </svg>	
+
+            <svg class="clip-svg">
+                <defs>
+                    <clipPath id="triangle-clip" clipPathUnits="objectBoundingBox">
+                        <polygon points="1 0.03, 0.17 1, 1 1" />
+                    </clipPath>
+                </defs>
+            </svg>	
+        </div> <!-- /wrap -->
+       
+  </body>
+</html>
